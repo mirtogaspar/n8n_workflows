@@ -3,7 +3,8 @@
 This repository contains an **n8n workflow** that reads user data from an Excel file stored in **Google Drive**, extracts relevant information, generates email addresses, and updates a **Google Sheet** with the result.
 
 ! Workflow Diagram
-![image](https://github.com/user-attachments/assets/ee2430a8-bad8-48c1-b32e-c8ff1173a11c)
+![image](https://github.com/user-attachments/assets/37c4ac98-6efc-4caa-8fb4-d53deef7a1ab)
+
 
 
 
