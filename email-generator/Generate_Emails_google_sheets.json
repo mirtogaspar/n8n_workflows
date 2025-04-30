@@ -1,0 +1,378 @@
+{
+  "name": "Generate Emails google sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "functionCode": "return items.map(item => {\n  // Extract the necessary fields from the input item\n  const firstThreeDigits = item.json.firstThreeDigits ? item.json.firstThreeDigits : '';\n  const fullName = item.json.fullName ? item.json.fullName : '';\n\n  // Ensure both firstThreeDigits and fullName are valid before generating the email\n  if (firstThreeDigits && fullName) {\n    // Sanitize the fullName by removing spaces and converting to lowercase (if needed)\n    const sanitizedFullName = fullName.toLowerCase().replace(/\\s/g, '');\n\n    // Generate the email address by combining the first 3 digits with the sanitized full name\n    const email = `${firstThreeDigits}.${sanitizedFullName}@maildrop.cc`;\n\n    return {\n      json: {\n        rowIndex: item.json.rowIndex,\n        'Generated Email': email\n      }\n    };\n  } else {\n    // If either firstThreeDigits or fullName is missing, set 'Generated Email' to empty\n    return {\n      json: {\n        rowIndex: item.json.rowIndex,\n        'Generated Email': '' // Leave it blank if either field is missing\n      }\n    };\n  }\n});\n\n\n"
+      },
+      "id": "2c2c060f-adcd-46cf-9236-c6936593de47",
+      "name": "Generate Emails",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1xEQgeo9JB5P9yAgsTbFJ9uWwhGyO705JLAlXe5uYcic",
+          "mode": "list",
+          "cachedResultName": "Farmers Details 2024",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xEQgeo9JB5P9yAgsTbFJ9uWwhGyO705JLAlXe5uYcic/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xEQgeo9JB5P9yAgsTbFJ9uWwhGyO705JLAlXe5uYcic/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Α.φ.μ": "={{ $('Extract exact cell').item.json.firstThreeDigits }}",
+            "Ονοματεπώνυμο": "={{ $('Extract exact cell').item.json.fullName }}",
+            "Generated Emails": "={{ $json['Generated Email'] }}",
+            "row_number": "={{ $('Create row index').item.json.rowIndex }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Α.φ.μ",
+              "displayName": "Α.φ.μ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Κωδικός βιβλίου",
+              "displayName": "Κωδικός βιβλίου",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ονοματεπώνυμο",
+              "displayName": "Ονοματεπώνυμο",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Όνομα χρήστη",
+              "displayName": "Όνομα χρήστη",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Κωδικός χρήστη",
+              "displayName": "Κωδικός χρήστη",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Κινητό",
+              "displayName": "Κινητό",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Διέυθυνση e-mail",
+              "displayName": "Διέυθυνση e-mail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ψηφιακή εφαρμογή",
+              "displayName": "Ψηφιακή εφαρμογή",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Πρώτος έτος δήλωσης εαε",
+              "displayName": "Πρώτος έτος δήλωσης εαε",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Total_ektasi",
+              "displayName": "Total_ektasi",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Generated Emails",
+              "displayName": "Generated Emails",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        340,
+        420
+      ],
+      "id": "0dbc891e-a753-4206-931a-2bcd62468ace",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZOCnaDpKTZlg2OXJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1U73h_fN6xJwhlhLWLdkB0ZJDrU6WIfpw",
+          "mode": "list",
+          "cachedResultName": "ΣΑΛΑΜΑΛΙΚΗΣ Αγρότες 2024 (8).xls",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U73h_fN6xJwhlhLWLdkB0ZJDrU6WIfpw/edit?usp=drivesdk&ouid=116361457028486429298&rtpof=true&sd=true"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -640,
+        160
+      ],
+      "id": "3e7bee98-b4e3-45fb-8e30-c1f2239a4dda",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "Vl30IWWM2cwjt8LB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nreturn items.map(item => {\n  // Extract the first 3 digits from 'Α.φ.μ' and the full name from 'Ονοματεπώνυμο'\n  const afm = item.json['Α.φ.μ'];  // This is the cell value for 'Α.φ.μ'\n  const fullName = item.json['Ονοματεπώνυμο'];  // This is the full name\n\n  // Extract the first 3 digits of the 'Α.φ.μ' value\n  const afmStr = String(afm || '');\n  const firstThreeDigits = afmStr.slice(0, 3);\n\n  // Return the modified JSON object\n  return {\n    json: {\n      firstThreeDigits: firstThreeDigits,\n      fullName: fullName\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        160
+      ],
+      "id": "1affb624-4f50-4653-b831-c4894fe23364",
+      "name": "Extract exact cell"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input1 = $input.all(0); // Original rows from Google Sheet\nconst emails = $input.first().json['Generated Email']; // Email array\n\nconst mergedItems = input1.map((origItem, index) => {\n  return {\n    json: {\n      ...origItem.json,\n      email: emails[index] // Add corresponding email to each row\n    }\n  };\n});\n\nreturn mergedItems;\n\n\n\n\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        160
+      ],
+      "id": "1389dfa9-47c5-41f4-88aa-180a5edf5370",
+      "name": "Merge results"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item, index) => {\n  item.json.rowIndex = index + 2; // +2 to match Google Sheets row number (assuming row 1 = headers)\n  return item;\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        160
+      ],
+      "id": "2179f67c-2907-42d7-9a76-1d18fa253153",
+      "name": "Create row index"
+    },
+    {
+      "parameters": {
+        "sheetId": "1xEQgeo9JB5P9yAgsTbFJ9uWwhGyO705JLAlXe5uYcic",
+        "range": "Sheet1",
+        "options": {}
+      },
+      "id": "16023bb7-b803-4906-b695-0f8af1de52bf",
+      "name": "Read Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        160
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZOCnaDpKTZlg2OXJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -860,
+        160
+      ],
+      "id": "bf20de2d-bfaa-4c8d-b244-f8e95127f7ae",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Generate Emails": {
+      "main": [
+        [
+          {
+            "node": "Merge results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Read Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract exact cell": {
+      "main": [
+        [
+          {
+            "node": "Generate Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge results": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create row index": {
+      "main": [
+        [
+          {
+            "node": "Extract exact cell",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Google Sheet": {
+      "main": [
+        [
+          {
+            "node": "Create row index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a8b071f0-4749-425f-ab95-80bf148a3ca0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ef62b66853f76a245a100e4679d254ae0141b11b22e1eb6a48c3b7a8c4f278a6"
+  },
+  "id": "OrBxtAIQKbfxwlLi",
+  "tags": []
+}
