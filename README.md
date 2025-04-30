@@ -62,8 +62,8 @@ This repository contains an **n8n workflow** that reads user data from an Excel 
 
 ## 🙋‍♂️ Author
 
-**Mirto Gasparinatou** – [GitHub Profile](github.com/mirtogaspar)
-                         [LinkedIn Profile] (linkedin.com/in/mirto-m-gasparinatou)
+**Mirto Gasparinatou** – [GitHub Profile](https://github.com/mirtogaspar) • [LinkedIn Profile](https://www.linkedin.com/in/mirto-m-gasparinatou)
+
 
 > Found this helpful? Feel free to ⭐️ this repo and share feedback!
 
