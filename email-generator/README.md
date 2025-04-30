@@ -13,7 +13,7 @@ This repository contains an **n8n workflow** that reads user data from an Excel 
 - 🔗 Integrates with **Google Drive** to access `.xlsx` files
 - 📊 Extracts and parses Excel content dynamically
 - 🧠 Extracts the **Name** and **first 3 digits** of the **Social Number**
-- ✉️ Generates structured email addresses (e.g., `john.doe123@example.com`)
+- ✉️ Generates structured email addresses (e.g., `john.doe123@example.com`). In this example I used https://maildrop.cc/ to generate new emails.
 - 📤 Updates a Google Sheet with the results
 - 🧩 Easily extendable for future AI/chatbot applications
 
