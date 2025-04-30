@@ -54,11 +54,6 @@ This repository contains an **n8n workflow** that reads user data from an Excel 
 4. Run the workflow manually or schedule it at your own.
 5. Review the updated Google Sheet for email outputs.
 
-## 🔮 Future Plans
-
-- 💬 Build an **AI chatbot** linked to a **vector database** (e.g., ChromaDB, Pinecone)
-- 🧠 Allow users to ask for email addresses using natural language queries
-- 🔗 Connect to **OpenAI** or **LangChain** for enhanced intelligence
 
 ## 🙋‍♂️ Author
 
