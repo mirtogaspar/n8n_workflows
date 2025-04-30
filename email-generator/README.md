@@ -1,9 +1,10 @@
 # 📧 Automated Email Generator Workflow (n8n + Google Drive + Google Sheets)
 
-This repository contains an **n8n workflow** that reads user data from an Excel file stored in **Google Drive**, extracts relevant information, generates email addresses, and updates a **Google Sheet** with the result.
+This repository contains an **n8n workflow** that reads user data from a Google Sheets file stored in **Google Drive**, extracts relevant information, generates email addresses, and updates a **Google Sheet** with the result.
 
 ! Workflow Diagram
-![image](https://github.com/user-attachments/assets/37c4ac98-6efc-4caa-8fb4-d53deef7a1ab)
+![image](https://github.com/user-attachments/assets/f6812acc-5b99-4053-a57a-54e751f1f8fe)
+
 
 
 
@@ -23,7 +24,7 @@ This repository contains an **n8n workflow** that reads user data from an Excel 
 |------|---------|
 | 🖱️ Manual Trigger | Starts the workflow manually for testing |
 | 📂 Google Drive | Downloads the target `.xlsx` file |
-| 📄 Extract from File | Parses the Excel content |
+| 📄 Extract from File | Parses the Google Sheets content |
 | 🔢 Create Row Index | Indexes rows for iteration |
 | 🔍 Extract Exact Cell | Gets values from the 'Name' and 'Social Number' columns |
 | 💻 Generate Emails | Uses a Function node to generate emails |
