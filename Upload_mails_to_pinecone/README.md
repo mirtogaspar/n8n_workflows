@@ -17,28 +17,24 @@ This enables LLM-powered agents to search and retrieve emails based on natural l
 
 
 ⚙️ Workflow
-Data Extraction: Download from Google drive and read the Google sheet using Google Sheets API.
+Data Extraction
+Downloads the data from Google Drive and reads the Google Sheet using the Google Sheets API.
 
-->Parses the data structure output by generate_emails.
+Parses the data structure output by generate_emails.
 
-->Isolates relevant fields (e.g., columns: Name, Email).
+Isolates relevant fields (e.g., columns: Name, Email).
 
-->Google Sheet Creation
+Google Sheet Creation
+Initializes a new Google Sheet using the Google Sheets API.
 
-->Initializes a new Google Sheet using the Google Sheets API.
+Populates it with the name-email pairs.
 
-->Populates it with the name-email pairs.
-
-
-
-Pinecone Upload:
-
+Pinecone Upload
 Connects to an existing Pinecone index.
 
 Converts email text into embeddings using an OpenAI model.
 
 Uploads the vectors along with metadata (e.g., name, content tags) into Pinecone.
-
 
 📌 Purpose
 This step makes it possible to:
