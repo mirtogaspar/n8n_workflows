@@ -1,6 +1,6 @@
 ## 📬 **Email Vectorization Pipeline**
 
-This phase of the project focuses on extending functionality by storing generated email content in a **Pinecone vector store** for semantic retrieval using **Large Language Models (LLMs)**.
+This project phase aims to enhance functionality through the use of **n8n** to automate the upload of generated email content into **Pinecone vector store** facilitating semantic retrieval through an agent powered by **Large Language Models (LLMs)**.
 
 ---
 
