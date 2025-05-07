@@ -1,14 +1,15 @@
 📬 Email Vectorization Pipeline
-This phase of the project focuses on extending functionality by storing generated email content in a Pinecone vector store for semantic retrieval using Large Language Models (LLMs).
+
+-This phase of the project focuses on extending functionality by storing generated email content in a Pinecone vector store for semantic retrieval using Large Language Models (LLMs).
 
 🧠 Overview
-Continuing from the previous stage where emails were generated in the generate_emails module, this process performs the following steps:
+-Continuing from the previous stage where emails were generated in the generate_emails module, this process performs the following steps:
 
-Extracts the specific spreadsheet cells that contain the contact names and the generated email content.
+1. Extracts the specific spreadsheet cells that contain the contact names and the generated email content.
 
-Creates a Google Sheets document to organize and store the extracted data.
+2. Creates a Google Sheets document to organize and store the extracted data.
 
-Uploads the document contents into Pinecone, where the data is vectorized for intelligent retrieval.
+3. Uploads the document contents into Pinecone, where the data is vectorized for intelligent retrieval.
 
 This enables LLM-powered agents to search and retrieve emails based on natural language queries.
 
