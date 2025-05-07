@@ -1,0 +1,338 @@
+{
+  "name": "upload mails to pinecone",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "mails",
+          "mode": "list",
+          "cachedResultName": "mails"
+        },
+        "options": {
+          "pineconeNamespace": "mails"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.1,
+      "position": [
+        60,
+        -200
+      ],
+      "id": "3285fbe5-e7a6-48cf-afb9-bf1236d07937",
+      "name": "Pinecone Vector Store",
+      "notesInFlow": false,
+      "credentials": {
+        "pineconeApi": {
+          "id": "w6yqQUrEPGLjrUUR",
+          "name": "PineconeApi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -100,
+        40
+      ],
+      "id": "d6ea1349-17be-40e5-8d8a-928a47a3f035",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "jPvnzPtlWYYRY53f",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        100,
+        40
+      ],
+      "id": "7674d51a-3154-4ee6-b54a-1d07e3106d5c",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "chunkSize": 200,
+        "chunkOverlap": 20,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        60,
+        260
+      ],
+      "id": "4fe13394-c62b-4cf4-bbe9-5a2e19ef4ae4",
+      "name": "Recursive Character Text Splitter"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1bg2su5hbEkRkxva63PyxpIrwrOZnRQkYswbiGE7Japw",
+          "mode": "list",
+          "cachedResultName": "Farmers Details_2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bg2su5hbEkRkxva63PyxpIrwrOZnRQkYswbiGE7Japw/edit?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -420,
+        -560
+      ],
+      "id": "d9260d53-2cf4-42ba-8ee4-aba14487a999",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "eBolveoAVt6XaB2r",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -560
+      ],
+      "id": "d77f158a-7bf0-4067-935f-b084ff34872c",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "const sentences = $input.all().map(item => item.json.text); // or item.json if it’s not nested\nconst combinedText = sentences.join('\\n');\n\nreturn [\n  {\n    json: {\n      content: combinedText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        300,
+        -560
+      ],
+      "id": "6222625a-bbf1-49cd-ae4c-bdb34c503601",
+      "name": "Combine Sentences into a Single String"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "1uUb6UzaaOFBp6HMH9hp0yLQl7v-OdpCfr4qeGru5K-g",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $json.content }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        -200
+      ],
+      "id": "a13fcdcd-5aa7-4d1e-99cb-6f7e2137cf5c",
+      "name": "Update to Google Document",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "7uNpOQ8UFKYQ086D",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "1uUb6UzaaOFBp6HMH9hp0yLQl7v-OdpCfr4qeGru5K-g"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        -200
+      ],
+      "id": "b6181bcd-a933-4cba-98bd-090d44e839bf",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "7uNpOQ8UFKYQ086D",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sheetId": "1bg2su5hbEkRkxva63PyxpIrwrOZnRQkYswbiGE7Japw",
+        "range": "Sheet1",
+        "options": {}
+      },
+      "id": "74f15cd8-cbc0-4001-b4fb-ae4dbb9ac8b7",
+      "name": "Read Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        -560
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "F7YYkoAV9cCoVCGf",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and convert each row into a sentence for vector storage\nconst results = $input.all().map(item => {\n  const name = item.json['NAME']?.trim();\n  const email = item.json['Generated Email']?.trim();\n\n  if (!name || !email) return null;\n\n  return {\n    json: {\n      text: `${name}'s email is ${email}.`\n    }\n  };\n}).filter(Boolean); // Remove any nulls\n\nreturn results;\n\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        -560
+      ],
+      "id": "493916a6-c1bb-483e-aa4e-6b53bf022a68",
+      "name": "Pass only the name and the email to pinecone"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Read Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine Sentences into a Single String": {
+      "main": [
+        [
+          {
+            "node": "Update to Google Document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update to Google Document": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Google Sheet": {
+      "main": [
+        [
+          {
+            "node": "Pass only the name and the email to pinecone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pass only the name and the email to pinecone": {
+      "main": [
+        [
+          {
+            "node": "Combine Sentences into a Single String",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9633f83e-12b8-4e04-8c64-01f571373726",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8efd0ba1cb156d327abed4e59c9192e937d4a8afd0df9bee5d13069dfabda977"
+  },
+  "id": "SRFrdzb0GncglNh0",
+  "tags": []
+}
