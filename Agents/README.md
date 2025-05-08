@@ -7,7 +7,7 @@ The workflow consists of two main agents:
 ![Agent](https://github.com/user-attachments/assets/fa12aae5-23f7-4d7f-849b-2d9c10a60284)
 
 
-3. **send_mail_tool**: This agent retrieves emails from the Pinecone vector store and sends them. It leverages semantic retrieval capabilities to ensure relevant email content is accessed and dispatched efficiently.
+3. **send_mail_tool**: This agent retrieves emails from the Pinecone vector store and sends them. It leverages semantic retrieval capabilities to ensure relevant email content is accessed and dispatched efficiently. It is activated when the mail_agent_pinecone calls it.
 ![sendmail_agent](https://github.com/user-attachments/assets/fd64b4d2-8316-4dfa-b8eb-8a6583b2a41b)
 
 
