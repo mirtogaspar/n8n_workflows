@@ -10,7 +10,7 @@ Continuing from the previous stage where emails were generated in `Generate_Emai
 
 1. **Extracts** the specific spreadsheet cells that contain the contact **names** and the **generated email content**.
 2. **Creates** a **Google Sheets** document to organise and store the extracted data.
-3. **Uploads** the document contents into **Pinecone**, where the data is vectorised for intelligent retrieval.
+3. **Uploads** the document contents into **Pinecone**, where the data is vectorized for intelligent retrieval.
 
 This enables LLM-powered agents to search and retrieve emails based on natural language queries.
 
