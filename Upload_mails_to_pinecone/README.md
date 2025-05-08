@@ -9,8 +9,8 @@ This project phase aims to enhance functionality through the use of **n8n** to a
 Continuing from the previous stage where emails were generated in `Generate_Emails_google_sheets.json` module, this process performs the following steps:
 
 1. **Extracts** the specific spreadsheet cells that contain the contact **names** and the **generated email content**.
-2. **Creates** a **Google Sheets** document to organize and store the extracted data.
-3. **Uploads** the document contents into **Pinecone**, where the data is vectorized for intelligent retrieval.
+2. **Creates** a **Google Sheets** document to organise and store the extracted data.
+3. **Uploads** the document contents into **Pinecone**, where the data is vectorised for intelligent retrieval.
 
 This enables LLM-powered agents to search and retrieve emails based on natural language queries.
 
