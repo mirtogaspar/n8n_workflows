@@ -3,8 +3,13 @@
 ## Workflow Description
 The workflow consists of two main agents:
 
-1. **Email Sending Agent**: This agent is responsible for automatically sending emails. It behaves as a tool, utilizing n8n to streamline the email dispatch process.
-2. **Email Retrieval Agent**: This agent retrieves emails from the Pinecone vector store and sends them. It leverages semantic retrieval capabilities to ensure relevant email content is accessed and dispatched efficiently.
+1. **mail_agent_pinecone**: This agent is responsible for automatically sending emails. It behaves as a tool, utilizing n8n to streamline the email dispatch process.
+![Agent](https://github.com/user-attachments/assets/fa12aae5-23f7-4d7f-849b-2d9c10a60284)
+
+
+3. **send_mail_tool**: This agent retrieves emails from the Pinecone vector store and sends them. It leverages semantic retrieval capabilities to ensure relevant email content is accessed and dispatched efficiently.
+![sendmail_agent](https://github.com/user-attachments/assets/fd64b4d2-8316-4dfa-b8eb-8a6583b2a41b)
+
 
 ## Components
 - **Manual Trigger**: Initiates the workflow manually for testing purposes.
