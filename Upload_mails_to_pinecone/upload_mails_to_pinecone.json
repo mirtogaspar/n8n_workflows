@@ -25,7 +25,7 @@
       "notesInFlow": false,
       "credentials": {
         "pineconeApi": {
-          "id": "w6yqQUrEPGLjrUUR",
+          "id": "YOUR_API_KEY",
           "name": "PineconeApi account 2"
         }
       }
@@ -40,11 +40,11 @@
         -100,
         40
       ],
-      "id": "d6ea1349-17be-40e5-8d8a-928a47a3f035",
+      "id": "YOUR_API_KEY",
       "name": "Embeddings OpenAI",
       "credentials": {
         "openAiApi": {
-          "id": "jPvnzPtlWYYRY53f",
+          "id": "YOUR_API_KEY",
           "name": "OpenAi account"
         }
       }
@@ -99,7 +99,7 @@
       "name": "Google Drive",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "eBolveoAVt6XaB2r",
+          "id": "YOUR_API_KEY",
           "name": "Google Drive account"
         }
       }
@@ -151,7 +151,7 @@
       "name": "Update to Google Document",
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "7uNpOQ8UFKYQ086D",
+          "id": "YOUR_API_KEY",
           "name": "Google Docs account"
         }
       }
@@ -171,7 +171,7 @@
       "name": "Google Docs",
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "7uNpOQ8UFKYQ086D",
+          "id": "YOUR_API_KEY",
           "name": "Google Docs account"
         }
       }
@@ -192,7 +192,7 @@
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "F7YYkoAV9cCoVCGf",
+          "id": "YOUR_API_KEY",
           "name": "Google Sheets account 2"
         }
       }

@@ -180,7 +180,7 @@
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "ZOCnaDpKTZlg2OXJ",
+          "id": "YOUR_API_KEY",
           "name": "Google Sheets account"
         }
       }
@@ -192,7 +192,7 @@
           "__rl": true,
           "value": "1U73h_fN6xJwhlhLWLdkB0ZJDrU6WIfpw",
           "mode": "list",
-          "cachedResultName": "ΣΑΛΑΜΑΛΙΚΗΣ Αγρότες 2024 (8).xls",
+          "cachedResultName": "Αγρότες 2024.xls",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1U73h_fN6xJwhlhLWLdkB0ZJDrU6WIfpw/edit?usp=drivesdk&ouid=116361457028486429298&rtpof=true&sd=true"
         },
         "options": {}
@@ -207,7 +207,7 @@
       "name": "Google Drive",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "Vl30IWWM2cwjt8LB",
+          "id": "YOUR_API_KEY",
           "name": "Google Drive account"
         }
       }
@@ -267,7 +267,7 @@
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "ZOCnaDpKTZlg2OXJ",
+          "id": "YOUR_API_KEY",
           "name": "Google Sheets account"
         }
       }

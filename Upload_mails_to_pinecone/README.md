@@ -6,7 +6,7 @@ This project phase aims to enhance functionality through the use of **n8n** to a
 
 ### 🧠 **Overview**
 
-Continuing from the previous stage where emails were generated in the `generate_emails` module, this process performs the following steps:
+Continuing from the previous stage where emails were generated in `Generate_Emails_google_sheets.json` module, this process performs the following steps:
 
 1. **Extracts** the specific spreadsheet cells that contain the contact **names** and the **generated email content**.
 2. **Creates** a **Google Sheets** document to organize and store the extracted data.
