@@ -4,6 +4,7 @@
 The workflow consists of two main agents:
 
 1. **mail_agent_pinecone**: This agent is responsible for automatically sending emails. It behaves as a tool, utilizing n8n to streamline the email dispatch process.
+
 ![Agent](https://github.com/user-attachments/assets/fa12aae5-23f7-4d7f-849b-2d9c10a60284)
 
 
