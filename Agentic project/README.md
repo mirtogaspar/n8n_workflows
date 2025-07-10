@@ -5,7 +5,7 @@ Designed and implemented an intelligent on-premise automation system using the l
 
 Scrapes and filters news articles from multiple sources
 
-Uses GPT-4o agents to categorize, summarize, and translate content
+Uses GPT-4o model agents to categorize, summarize and translate content
 
 Sends personalized email digests based on user preferences
 
