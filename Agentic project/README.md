@@ -1,5 +1,7 @@
 AI-Powered Internal News Delivery System with n8n and GPT-4o
 
+![Workflow Overview](Agentic project/agentic.png)
+
 Description:
 Designed and implemented an intelligent on-premise automation system using the low-code platform n8n for Fujitsu Luxembourg (internship project). This project automates the daily delivery of AI-related news to technical employees through a pipeline that:
 
